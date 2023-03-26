@@ -10,7 +10,7 @@ import * as echarts from 'echarts'
 type EChartsOption = echarts.EChartsOption;
 var option: EChartsOption;
 const temperature = ref<HTMLElement>();
-let myChart;
+let myChart: echarts.ECharts;
 onMounted(() => {
     myChart = echarts.init(temperature.value as HTMLElement);
     myChart.setOption(option);
@@ -36,9 +36,11 @@ onMounted(() => {
         });
 
     }, 4000);
-    window.addEventListener('resize', myChart.resize);
-
+    window.addEventListener('resize', resize);
 })
+const resize = () => {
+    if (myChart.resize) myChart.resize();
+}
 
 option = {
     series: [

@@ -8,7 +8,7 @@ import { useRouter } from "vue-router"
 import { useStore } from "vuex"
 import * as echarts from 'echarts'
 const relitu = ref<HTMLElement>();
-let myChart;
+let myChart: echarts.ECharts;
 type EChartsOption = echarts.EChartsOption;
 var option: EChartsOption;
 
@@ -17,10 +17,12 @@ onMounted(() => {
     myChart = echarts.init(relitu.value as HTMLElement);
     myChart.setOption(option, true);
 
-    window.addEventListener('resize', myChart.resize);
+    window.addEventListener('resize', resize);
 
 })
-
+const resize = () => {
+    if (myChart.resize) myChart.resize();
+}
 
 function getVirtualData(year: string) {
     const date = +echarts.time.parse(year + '-01-01');

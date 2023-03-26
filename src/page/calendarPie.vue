@@ -9,7 +9,7 @@ import { useStore } from "vuex"
 import * as echarts from 'echarts'
 
 const calendarPie = ref<HTMLElement>();
-let myChart;
+let myChart: echarts.ECharts;
 type EChartsOption = echarts.EChartsOption;
 var option: EChartsOption;
 var option1: EChartsOption;
@@ -25,9 +25,12 @@ onMounted(() => {
     }, 4000);
 
 
-    window.addEventListener('resize', myChart.resize);
+    window.addEventListener('resize', resize);
 
 })
+const resize = () => {
+    if (myChart.resize) myChart.resize();
+}
 
 option = {
 

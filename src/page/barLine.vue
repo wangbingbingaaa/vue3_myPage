@@ -8,7 +8,7 @@ import { useRouter } from "vue-router"
 import { useStore } from "vuex"
 import * as echarts from 'echarts'
 const barLine = ref<HTMLElement>();
-let myChart;
+let myChart: echarts.ECharts;
 type EChartsOption = echarts.EChartsOption;
 var option: EChartsOption;
 var option1: EChartsOption;
@@ -28,9 +28,12 @@ onMounted(() => {
     }, 3000);
 
 
-    window.addEventListener('resize', myChart.resize);
+    window.addEventListener('resize', resize);
 
 })
+const resize = () => {
+    if (myChart.resize) myChart.resize();
+}
 
 for (let i = 0; i < 20; i++) {
     let date = new Date((dottedBase += 3600 * 24 * 1000));
