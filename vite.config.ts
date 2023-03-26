@@ -4,5 +4,6 @@ import vue from '@vitejs/plugin-vue'
 // https://vitejs.dev/config/
 export default defineConfig({
     base: './',
-  plugins: [vue()],
+    publicDir: 'public', // 静态资源服务的文件夹
+    plugins: [vue()],
 })
