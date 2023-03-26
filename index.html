@@ -6,13 +6,36 @@
     <link rel="icon" type="image/svg+xml" href="./vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite_vue3_wxb</title>
-  <script type="module" crossorigin src="./assets/index-b4fc2c65.js"></script>
-  <link rel="stylesheet" href="./assets/index-c322ae43.css">
+  <script type="module" crossorigin src="./assets/index-c18631a7.js"></script>
+  <link rel="stylesheet" href="./assets/index-03b0dd7b.css">
 </head>
 
 <body>
     <div id="app"></div>
     
+    <script>
+        window.addEventListener("resize", function (e) {
+            let currenWidth = document.documentElement.clientWidth;
+            let currenHeight = document.documentElement.clientHeight;
+            let scale = 16 / 9 // 设计稿比例
+
+            if (currenWidth / currenHeight < 16 / 9) {
+                // 显示的宽度就是整屏幕宽度
+                // 过高 以宽度为基准等比例放大 1920 设计稿宽 设计稿基本字体就是16px
+                document.documentElement.style.fontSize = currenWidth / 1920 * 16 + 'px'
+
+            } else {
+                // 显示的高度就是整屏幕高度
+                // 过宽 以高度为基准等比例放大
+                document.documentElement.style.fontSize = currenHeight / 1080 * 16 + 'px'
+            }
+
+        }, false);
+
+        // window.addEventListener("pageshow", function (e) {
+        //     document.documentElement.style.fontSize = document.documentElement.clientWidth / 1920 * 16 + 'px'
+        // }, false);
+    </script>
 </body>
 
 </html>
