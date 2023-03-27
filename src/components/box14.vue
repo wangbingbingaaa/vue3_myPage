@@ -26,10 +26,8 @@ let width = ref<any>()
 let height = ref<any>()
 onMounted(() => {
     setTimeout(() => {
-        console.log('000')
         width.value = document.getElementById("box14")?.clientWidth
         height.value = document.getElementById("box14")?.clientHeight
-        console.log('000', document.getElementById("box14")?.clientWidth)
     }, 500)
 })
 

@@ -3,6 +3,7 @@
         <div class="header-text">
             xxx-大屏系统
         </div>
+        <div class="right-con" @click="jump()">跳转react</div>
 
     </div>
 </template>
@@ -11,6 +12,11 @@
 import { ref, watchEffect, watch, onMounted, computed } from "vue"
 import { useRouter } from "vue-router"
 import { useStore } from "vuex"
+const jump = () => {
+    let path = 'https://wangbingbingaaa.github.io/myPage/'
+    window.location.href = path
+
+}
 
 </script>
 
@@ -33,6 +39,15 @@ import { useStore } from "vuex"
         text-align: center;
 
 
+    }
+
+    .right-con {
+        position: absolute;
+        right: 16px;
+        color: #ffffff;
+        font-size: 1.2rem;
+        top: 10px;
+        cursor: pointer;
     }
 }
 </style>

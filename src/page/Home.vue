@@ -37,7 +37,8 @@
         </div>
         <div class="foot-con">
             <Box14>
-                <Relitu></Relitu>
+                <!-- <Relitu></Relitu> -->
+                <WindChart></WindChart>
             </Box14>
 
         </div>
@@ -58,6 +59,7 @@ import CalendarPie from './calendarPie.vue'
 import Temperature from './temperature.vue'
 import BarLine from './barLine.vue'
 import Relitu from "./relitu.vue";
+import WindChart from "./windChart.vue";
 </script>
 
 <style lang="scss" scoped>
