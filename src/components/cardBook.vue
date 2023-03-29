@@ -1,0 +1,76 @@
+<template>
+    <div class="card">
+        <div class="card__content">
+            <div class="card__date"> wxb
+            </div>
+            <div class="card__info">
+                <p @click="cardClick()">{{ content }}</p>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup lang="ts">
+import { ref, watchEffect, watch, onMounted, computed } from "vue"
+import { useRouter } from "vue-router"
+import { useStore } from "vuex"
+interface Props {
+    content?: string,
+}
+defineProps<Props>()
+const emit = defineEmits(["getValue"])
+
+const cardClick = () => {
+    emit("getValue", true)
+
+}
+
+</script>
+
+<style lang="scss" scoped>
+.card {
+    width: 254px;
+    height: 190px;
+    transform: rotate(90deg);
+    background: #00BCD4;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    transition-duration: 1.5s;
+    transition-property: width, height, transform;
+}
+
+.card:hover {
+    width: 190px;
+    height: 254px;
+    transform: rotate(0deg);
+    /* -ms-transform:rotate(90deg);
+  -webkit-transform:rotate(90deg); */
+}
+
+.card__content {
+    padding: 1rem;
+    font-size: smaller;
+}
+
+.card__date {
+    color: white;
+    margin-bottom: .5rem;
+    font-weight: 700;
+}
+
+.card__info {
+    width: 100%;
+    height: 200px;
+    padding: .7rem;
+    font-size: smaller;
+    border-radius: 1rem;
+    text-align: center;
+    background-color: #fae4c3;
+    color: #fae4c3;
+    transition-duration: 1s;
+    transition-property: color;
+}
+
+.card__info:hover {
+    color: #212121;
+}
+</style>
