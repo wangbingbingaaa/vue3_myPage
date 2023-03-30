@@ -5,6 +5,8 @@ import threeShowObjMtll from '../three/threeShowObjMtll.vue'
 import threeShowGlb from '../three/threeShowGlb.vue'
 import CardMain from '../three/CardMain.vue'
 import threeMain from '../three/threeMain.vue'
+import girlVue from '../three/girl.vue';
+import xiangsuVue from '../three/xiangsu.vue';
 
 const routes: RouteRecordRaw[] = [
     {
@@ -27,9 +29,36 @@ const routes: RouteRecordRaw[] = [
     {
         path: "/3D",
         component: threeMain,
+         children: [
+            {
+                path: "thxw",
+                name: "homepage",
+                component: threeShowObjMtll,
+               
+            },
+            {
+                path: "",
+                name: "girl",
+                component: girlVue,
+               
+            },
+            {
+                path: "xsr",
+                name: "xsr",
+                component: xiangsuVue,
+               
+            },
+                  {
+                path: "threeShowGlb",
+                name: "threeShowGlb",
+                component: () => import("../three/threeShowGlb.vue"),
+               
+            },
+        ],
+           
     },
     {
-        path: "/card",
+        path: "/ui",
         component: CardMain,
     }
 ];

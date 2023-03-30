@@ -1,7 +1,6 @@
 <template>
     <div class="three_overlay">
         <div id="three_glb">
-            three
         </div>
     </div>
 </template>

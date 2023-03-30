@@ -3,7 +3,15 @@
         <div class="header-text">
             xxx-大屏系统
         </div>
-        <div class="right-con" @click="jump()">跳转react</div>
+        <div class="left-con">
+            <div class="item_btn" @click="show3D">
+                3D展示
+            </div>
+            <div class="item_btn" @click="showUI">
+                UI展示
+            </div>
+        </div>
+        <div class="right-con" @click="jump()">跳转react项目</div>
 
     </div>
 </template>
@@ -12,9 +20,21 @@
 import { ref, watchEffect, watch, onMounted, computed } from "vue"
 import { useRouter } from "vue-router"
 import { useStore } from "vuex"
+const router = useRouter();
 const jump = () => {
     let path = 'https://wangbingbingaaa.github.io/myPage/'
     window.location.href = path
+
+}
+const show3D = () => {
+    router.push({
+        path: "/3d"
+    });
+}
+const showUI = () => {
+    router.push({
+        path: "/ui"
+    });
 
 }
 
@@ -41,13 +61,37 @@ const jump = () => {
 
     }
 
+    .left-con {
+        position: absolute;
+        left: 16px;
+        color: #ffffff;
+        font-size: 1.2rem;
+        top: 8px;
+        cursor: pointer;
+        display: flex;
+
+        .item_btn {
+            margin: 0 16px 0 0;
+
+        }
+
+        .item_btn:hover {
+            color: #0ddfea;
+        }
+
+    }
+
     .right-con {
         position: absolute;
         right: 16px;
         color: #ffffff;
         font-size: 1.2rem;
-        top: 10px;
+        top: 8px;
         cursor: pointer;
+    }
+
+    .right-con:hover {
+        color: #0ddfea;
     }
 }
 </style>
