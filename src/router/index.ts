@@ -7,8 +7,24 @@ import CardMain from '../three/CardMain.vue'
 import threeMain from '../three/threeMain.vue'
 import girlVue from '../three/girl.vue';
 import xiangsuVue from '../three/xiangsu.vue';
+import systemShow from '../page/systemShow/systemShow.vue'
+import commentPage from '../page/systemShow/commentPage.vue'
+import NotFound from '../page/notFound.vue'
 
 const routes: RouteRecordRaw[] = [
+    {
+        path: "/sys",
+        component: systemShow,
+        children: [
+            {
+                path: "comment",
+                name: "comment",
+                component: commentPage,
+               
+           
+            },]
+       
+    },
     {
         path: "/",
         component: Home,
@@ -60,7 +76,12 @@ const routes: RouteRecordRaw[] = [
     {
         path: "/ui",
         component: CardMain,
-    }
+    },
+{
+    path: "/404",
+    component: NotFound,
+},
+    { path: '/:catchAll(.*)', redirect: '/404' }
 ];
 
 const router = createRouter({

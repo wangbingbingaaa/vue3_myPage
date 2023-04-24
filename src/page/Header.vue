@@ -4,11 +4,14 @@
             xxx-大屏系统
         </div>
         <div class="left-con">
-            <div class="item_btn" @click="show3D">
+            <div class="item_btn" @click="jumpPage('/3d')">
                 3D展示
             </div>
-            <div class="item_btn" @click="showUI">
+            <div class="item_btn" @click="jumpPage('/ui')">
                 UI展示
+            </div>
+            <div class="item_btn" @click="jumpPage('/sys')">
+                管理系统
             </div>
         </div>
         <div class="right-con" @click="jump()">跳转react项目</div>
@@ -26,17 +29,12 @@ const jump = () => {
     window.location.href = path
 
 }
-const show3D = () => {
+const jumpPage = (val: any) => {
     router.push({
-        path: "/3d"
+        path: val
     });
 }
-const showUI = () => {
-    router.push({
-        path: "/ui"
-    });
 
-}
 
 </script>
 

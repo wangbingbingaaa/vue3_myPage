@@ -1,5 +1,9 @@
 <template>
     <div class="three_overlay">
+        <div class="back-row">
+            <span class="iconfont icon-fanhui" @click="goback()">返回主页</span>
+
+        </div>
         <div class="cardRow">
             <CardPaper content="会跳舞得小人" @getValue="getValuePaper"></CardPaper>
             <CardBook content="会跳舞得小人" @getValue="getValueBook"></CardBook>
@@ -27,6 +31,15 @@ import CardPaper from '../components/cardPaper.vue'
 import CardBook from '../components/cardBook.vue'
 import CardUp from '../components/cardUp.vue'
 import CardTurn from '../components/cardTurn.vue'
+import { useRouter } from "vue-router"
+import { useStore } from "vuex"
+const router = useRouter();
+const goback = () => {
+    router.push({
+        path: './'
+    });
+
+}
 
 const getValue = (e) => {
     console.log(e)
@@ -53,6 +66,10 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
+.iconfont {
+    cursor: pointer;
+}
+
 .cards {
     width: 190px;
     height: 254px;
